@@ -1,0 +1,9 @@
+<p>Paragrafo vindo do home</p>
+<p>O nome do usuario é {{user.name}} {{user.surname}} e ele tem {{user.age}} anos</p>
+<p>O seu carro é um {{car.name}} de ano {{car.age}}</p>
+
+{{#if auth}}
+<p>
+    Voçe esta autenticado, <a href="/dashboard">clique aqui</a> para acessar a area de membros
+</p>
+{{/if}}

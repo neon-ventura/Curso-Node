@@ -1,6 +1,9 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const path = require('path')
 const app = express()
+
+const file = path.join(__dirname, 'views')
 
 app.engine('handlebars', exphbs.engine())
 
@@ -19,7 +22,14 @@ app.get('/', (req, res) => {
         age: 1970
     }
 
-    res.render('home', {user: user, car: car})
+    const auth = true
+
+    res.render('home', {user: user, car: car, auth})
+})
+
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard')
 })
 
 app.listen(3000)
+console.log(file)
