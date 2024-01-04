@@ -22,14 +22,24 @@ app.get('/', (req, res) => {
         age: 1970
     }
 
-    const auth = false
+    const auth = true
 
     res.render('home', {user: user, car: car, auth})
 })
 
 app.get('/dashboard', (req, res) => {
-    res.render('dashboard')
+    const items = ['item a', 'item b', 'item c']
+    res.render('dashboard', {items})
+})
+
+app.get('/post', (req, res) => {
+    const post = {
+        title: 'Aprender Node.js',
+        category: 'JavaScript',
+        body: 'Este artigo vai te ajudar a aprender Node.js',
+        comments: 4
+    }
+    res.render('blogpost', { post })
 })
 
 app.listen(3000)
-console.log(file)
