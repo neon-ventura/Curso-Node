@@ -3,14 +3,18 @@ const express = require('express')
 const exphs = require('express-handlebars')
 const app = express()
 
+
+
 app.use(express.urlencoded({
     extended: true
 }))
 
-app.use(express.json())
-
 app.engine('handlebars', exphs.engine())
 app.set('view engine', 'handlebars')
+
+app.use(express.json())
+
+app.use(express.static('public'))
 
 app.get('/caes/:id', (req, res) => {
     const sql = 'SELECT idcaes FROM caes'
@@ -67,6 +71,20 @@ app.get('/cao/:id', (req, res) => {
 
         const cao = data[0]
         res.render('cao', { cao })
+    })
+})
+
+app.get('/editarcao/:id', (req, res) => {
+    const id = req.params.id
+    const sql = `SELECT * FROM caes WHERE idcaes = ${id}`
+    conn.query(sql, (err, data) => {
+        if (err) {
+            console.log(err)
+            return
+        }
+        const cao = data[0]
+        res.render('editarcao', { cao })
+        console.log(cao)
     })
 })
 

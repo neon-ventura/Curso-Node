@@ -1,0 +1,20 @@
+<h1>Edite seu Dog</h1>
+
+<div class="formulario">
+    <form action="/meuscaes" method="POST">
+        <div class="section-name">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" value="{{cao.caesname}}">
+        </div>
+        <div class="section-idade">
+            <label for="idade">Idade:</label>
+            <input type="number" name="idade" id="idade" value="{{cao.caesidade}}">
+        </div>
+    
+        <div>
+            <input class="enviar" type="submit" value="Editar">
+        </div>
+    </form>
+</div>
+<p class="links"><a href="/">Cadastrar</a></p>
+<p class="links"><a href="/caeslist">Voltar a Lista</a></p>

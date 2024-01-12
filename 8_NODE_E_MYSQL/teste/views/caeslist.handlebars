@@ -1,9 +1,13 @@
 <h1>Lista Doguinhos</h1>
 
-{{#each caes}}
-    <h3>Nome: <a href="/cao/{{this.idcaes}}">{{this.caesname}}</a></h3>
-    <h3>Idade: {{this.caesidade}}</h3>
-    <p>=================================</p>
-{{/each}}
+<div class="lista">
+    <div class="dados-cao">
+        {{#each caes}}
+            <h3>Nome: <a href="/cao/{{this.idcaes}}">{{this.caesname}}</a></h3>
+            <h3>Idade: {{this.caesidade}}</h3>
+            <p>=====================================</p>
+        {{/each}}
+    </div>
+</div>
 
-<a href="/">Cadastrar mais Dogs</a>
+<p class="links"><a href="/">Cadastrar mais Dogs</a></p>
