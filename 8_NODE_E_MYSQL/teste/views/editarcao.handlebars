@@ -1,7 +1,8 @@
 <h1>Edite seu Dog</h1>
 
 <div class="formulario">
-    <form action="/meuscaes" method="POST">
+    <form action="/editar" method="POST">
+    <input type="hidden" name="id" value="{{cao.idcaes}}">
         <div class="section-name">
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome" value="{{cao.caesname}}">

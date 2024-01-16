@@ -88,6 +88,22 @@ app.get('/editarcao/:id', (req, res) => {
     })
 })
 
+app.post('/editar', (req, res) => {
+    const nome = req.body.nome
+    const idade = req.body.idade
+    const id = req.body.id
+    const sql = `UPDATE caes SET caesname = '${nome}', caesidade = '${idade}' WHERE idcaes = '${id}'`
+
+    conn.query(sql, (err, data) => {
+        if (err) {
+            console.log(err)
+            return
+        }
+
+        res.redirect('/caeslist')
+    })
+})
+
 const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
