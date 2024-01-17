@@ -2,5 +2,8 @@
 <div class="idade-cao">
     <p>Seu dog tem {{cao.caesidade}} de idade</p>
     <button class="btn-editar"><a href="/editarcao/{{cao.idcaes}}">Editar</a></button>
+    <form action="/deletarcao/{{cao.idcaes}}" method="post">
+        <input type="submit" value="Apagar">
+    </form>
 </div>
 <p class="links"><a href="/caeslist">Voltar</a></p>

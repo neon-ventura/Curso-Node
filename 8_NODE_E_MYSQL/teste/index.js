@@ -1,4 +1,4 @@
-const mysql = require('mysql')
+const pool = require('./db/conn')
 const express = require('express')
 const exphs = require('express-handlebars')
 const app = express()
@@ -18,7 +18,7 @@ app.use(express.static('public'))
 
 app.get('/caes/:id', (req, res) => {
     const sql = 'SELECT idcaes FROM caes'
-    conn.query(sql, (err, data) => {
+    pool.query(sql, (err, data) => {
         if (err) {
             console.log(err)
         }
@@ -32,7 +32,7 @@ app.get('/caes/:id', (req, res) => {
 
 app.get('/caeslist', (req, res) => {
     const sql = 'SELECT * FROM caes'
-    conn.query(sql, (err, data) => {
+    pool.query(sql, (err, data) => {
         if (err) {
             console.log(err)
             return
@@ -50,7 +50,7 @@ app.post('/meuscaes', (req, res) => {
 
     const sql = `INSERT INTO caes (caesname, caesidade) VALUE ('${nome}', '${idade}')`
 
-    conn.query(sql, (err) => {
+    pool.query(sql, (err) => {
         if (err) {
             console.log(err)
         }
@@ -63,7 +63,7 @@ app.get('/cao/:id', (req, res) => {
     const id = req.params.id
     const sql = `SELECT * FROM caes WHERE idcaes = ${id}`
 
-    conn.query(sql, (err, data) => {
+    pool.query(sql, (err, data) => {
         if (err) {
             console.log(err)
             return
@@ -77,7 +77,7 @@ app.get('/cao/:id', (req, res) => {
 app.get('/editarcao/:id', (req, res) => {
     const id = req.params.id
     const sql = `SELECT * FROM caes WHERE idcaes = ${id}`
-    conn.query(sql, (err, data) => {
+    pool.query(sql, (err, data) => {
         if (err) {
             console.log(err)
             return
@@ -94,7 +94,7 @@ app.post('/editar', (req, res) => {
     const id = req.body.id
     const sql = `UPDATE caes SET caesname = '${nome}', caesidade = '${idade}' WHERE idcaes = '${id}'`
 
-    conn.query(sql, (err, data) => {
+    pool.query(sql, (err, data) => {
         if (err) {
             console.log(err)
             return
@@ -104,23 +104,21 @@ app.post('/editar', (req, res) => {
     })
 })
 
-const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'caesdatabase'
+app.post('/deletarcao/:id', (req, res) => {
+    const id = req.params.id
+    const sql = `DELETE FROM caes WHERE idcaes = ${id}`
+
+    pool.query(sql, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    })
+
+    res.redirect('/caeslist')
 })
 
 app.get('/', (req, res) => {
     res.render('home')
 })
 
-conn.connect((err) => {
-    if (err) {
-        console.log(err)
-    }
-
-    app.listen(3000)
-
-    console.log('Conectou ao MySQL')
-})
+app.listen(3000)
