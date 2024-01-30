@@ -1,0 +1,9 @@
+<form action="/user/update" method="post">
+    <input type="hidden" name="id" value="{{user.id}}">
+    <label for="name">Nome: </label>
+    <input type="text" name="name" id="name" value="{{user.name}}">
+    <label for="occupation">Profissão: </label>
+    <input type="text" name="occupation" id="occupation" value="{{user.occupation}}">
+
+    <input type="submit" value="Editar">
+</form>
