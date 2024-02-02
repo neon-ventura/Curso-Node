@@ -1,0 +1,7 @@
+<a href="/"> Voltar</a>
+<h1>{{user.name}}</h1>
+<p>{{user.occupation}}</p>
+<form action="/user/delete/{{user.id}}" method="post">
+    <input type="submit" value="Deletar">
+</form>
+<a href="/user/edit/{{user.id}}">Editar</a>
