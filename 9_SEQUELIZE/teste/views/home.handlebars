@@ -1,15 +1,27 @@
-<form action="/users/register" method="post">
-    <div class="form-control">
-        <label for="name">Nome: </label>
-        <input type="text" name="name" id="name" placeholder="Digite seu Nome...">
-    </div>
-    <div class="form-control">
-        <label for="job">Trabalho: </label>
-        <input type="text" name="job" id="job" placeholder="Digite sua Profissão...">
-    </div>
-    <div class="form-control">
-        <input type="checkbox" name="notification" id="notification" checked>
-        <label for="notification">Receber notificação?</label>
-    </div>
-    <input type="submit" value="Cadastrar">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastre aqui</h1>
+
+    <form action="/cadastrar" method="post">
+        <div>
+            <label for="name">Nome: </label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="text" name="email" id="email">
+        </div>
+        <div>
+            <label for="password">Senha: </label>
+            <input type="text" name="password" id="password">
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

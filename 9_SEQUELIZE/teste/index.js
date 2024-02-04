@@ -1,32 +1,28 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
-const conn = require('./db/conn')
+
 const app = express()
 
-const Job = require('./models/Job')
+const User = require('./models/User')
+const conn = require('./db/conn')
 
-app.use(express.urlencoded({
-    extended: true
-}))
+app.use(
+    express.urlencoded({
+        extended: true
+    })
+)
 
 app.use(express.json())
 
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
 
-app.post('/users/register', async (req, res) => {
+app.post('/cadastrar', async (req, res) => {
     const name = req.body.name
-    const job = req.body.job
-    let notification = req.body.notification
+    const email = req.body.email
+    const password = req.body.password
 
-    if (notification === 'on') {
-        notification = true
-    }else{
-        notification = false
-    }
-    
-    await Job.create({ name, job, notification})
-
+    await User.create({name, email, password})
     res.redirect('/')
 })
 
@@ -34,6 +30,8 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-conn.sync().then(() => {
+conn
+.sync()
+.then(() => {
     app.listen(3000)
 })
