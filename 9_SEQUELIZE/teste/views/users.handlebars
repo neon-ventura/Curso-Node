@@ -1,0 +1,8 @@
+<h1>Usuarios Cadastrados</h1>
+<a href="/">
+    {{#each user}}
+        <h3>{{this.name}}</h3>
+        <p>{{this.email}}</p>
+        <p>{{this.password}}</p>
+    {{/each}}
+</a>

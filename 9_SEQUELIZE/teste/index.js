@@ -12,6 +12,8 @@ app.use(
     })
 )
 
+app.use(express.static('public'))
+
 app.use(express.json())
 
 app.engine('handlebars', exphbs.engine())
@@ -23,10 +25,15 @@ app.post('/cadastrar', async (req, res) => {
     const password = req.body.password
 
     await User.create({name, email, password})
-    res.redirect('/')
+    res.redirect('/users')
 })
 
-app.get('/', (req, res) => {
+app.get('/users', async (req, res) => {
+    const user = await User.findAll({raw: true})
+    res.render('users', {user})
+})
+
+app.get('/', async (req, res) => {
     res.render('home')
 })
 
