@@ -1,0 +1,42 @@
+<h1>Editar Usuario</h1>
+
+<form action="/useredit" method="post">
+    <input type="hidden" name="id" value="{{user.id}}">
+    <div class="input-form">
+        <label for="name">Nome: </label>
+        <input type="text" name="name" id="name" value="{{user.name}}">
+    </div>
+    <div class="input-form">
+        <label for="email">Email: </label>
+        <input type="text" name="email" id="email" value="{{user.email}}">
+    </div>
+    <div class="input-form">
+        <label for="password">Senha: </label>
+        <input type="text" name="password" id="password" value="{{user.password}}">
+    </div>
+    <input type="submit" value="Editar">
+</form>
+
+<form action="/user/delete/{{user.id}}" method="post">
+    <input type="submit" value="Apagar">
+</form>
+
+<h1>Adicionar Endereço</h1>
+
+<form action="/useraddress" method="post">
+    <input type="hidden" name="UserId" value="{{user.id}}">
+    <input type="hidden" name="id" value="{{user.id}}">
+    <div class="input-form">
+        <label for="name">País: </label>
+        <input type="text" name="country" id="country" value="{{user.Adres.country}}">
+    </div>
+    <div class="input-form">
+        <label for="email">Estado:  </label>
+        <input type="text" name="state" id="state" value="{{user.Adres.state}}">
+    </div>
+    <div class="input-form">
+        <label for="password">Cidade : </label>
+        <input type="text" name="city" id="city">
+    </div>
+    <input type="submit" value="Adicionar">
+</form>

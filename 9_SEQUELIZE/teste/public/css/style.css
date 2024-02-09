@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    background-color: rgb(234, 228, 228);
+}
+
+/*
+Header
+*/
+
+nav {
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    padding-right: 20px;
+    text-decoration: none;
+}
+
+/*
+Home
+*/
+
+h1{
+    text-align: center;
+    padding: 20px;
+}
+
+form {
+    text-align: center;
+}
+
+.input-form {
+    padding-bottom: 5px;
+}
+
+/*
+Usuarios
+*/
+
+.section-user {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 30px;
+}
+
+.user-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.user-card:hover {
+    transform: scale(1.05);
+}

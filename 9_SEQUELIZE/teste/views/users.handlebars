@@ -1,8 +1,12 @@
 <h1>Usuarios Cadastrados</h1>
-<a href="/">
+<div class="section-user">
     {{#each user}}
-        <h3>{{this.name}}</h3>
-        <p>{{this.email}}</p>
-        <p>{{this.password}}</p>
+    <a href="/users/edit/{{this.id}}">
+        <div class="user-card">
+            <h3>{{this.name}}</h3>
+            <p>{{this.email}}</p>
+            <p>{{this.password}}</p>
+        </div>
+    </a>
     {{/each}}
-</a>
+</div>
