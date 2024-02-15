@@ -28,11 +28,11 @@
     <input type="hidden" name="id" value="{{user.id}}">
     <div class="input-form">
         <label for="name">País: </label>
-        <input type="text" name="country" id="country" value="{{user.Adres.country}}">
+        <input type="text" name="country" id="country">
     </div>
     <div class="input-form">
         <label for="email">Estado:  </label>
-        <input type="text" name="state" id="state" value="{{user.Adres.state}}">
+        <input type="text" name="state" id="state">
     </div>
     <div class="input-form">
         <label for="password">Cidade : </label>
@@ -40,3 +40,21 @@
     </div>
     <input type="submit" value="Adicionar">
 </form>
+
+<h1>Meus Endereços:</h1>
+
+<div class="section-addresses">
+        {{#each user.Addresses}}
+        <div class="address">
+            <p>#{{this.id}}</p>
+            <p>{{this.country}}</p>
+            <p>{{this.state}}</p>
+            <p>{{this.city}}</p>
+            <form action="/deleteaddress" method="post">
+                <input type="hidden" name="UserId" value="{{this.UserId}}">
+                <input type="hidden" name="id" value="{{this.id}}">
+                <input type="submit" value="Excluir">
+            </form>
+        </div>
+        {{/each}}
+</div>

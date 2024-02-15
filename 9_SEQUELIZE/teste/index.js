@@ -6,7 +6,6 @@ const app = express()
 const User = require('./models/User')
 const Address = require('./models/Address')
 const conn = require('./db/conn')
-const { where } = require('sequelize')
 
 app.use(
     express.urlencoded({
@@ -65,7 +64,6 @@ app.post('/user/delete/:id', async (req, res) => {
 })
 
 app.post('/useraddress', async (req, res) => {
-    const id = req.body.id
     const UserId = req.body.UserId
     const country = req.body.country
     const state = req.body.state
@@ -78,8 +76,16 @@ app.post('/useraddress', async (req, res) => {
         city
     }
 
-    await Address.create(userData, {where: {id: id}})
-    res.redirect('/users')
+    await Address.create(userData, {where: {id: UserId}})
+    console.log(UserId)
+    res.redirect(`/users/edit/${UserId}`)
+})
+
+app.post('/deleteaddress', async (req, res) => {
+    const UserId = req.body.UserId
+    const id = req.body.id
+    await Address.destroy({where: {id: id}})
+    res.redirect(`/users/edit/${UserId}`)
 })
 
 app.get('/', async (req, res) => {
