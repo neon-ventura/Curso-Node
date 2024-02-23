@@ -1,18 +1,7 @@
-//Express
-const express = require('express') // Importando Express
-const app = express() // Invocando Express
-//
+const express = require('express')
+const app = express()
 
 const exphbs = require('express-handlebars')
-
-const Task = require('./models/Task')
-
-const conn = require('./db/conn') // importando conexão ( Sequelize )
-
-const tasksRoutes = require('./routes/tasksRoutes')
-
-app.use('/tasks' ,tasksRoutes)
-
 
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
@@ -25,11 +14,18 @@ app.use(
 
 app.use(express.json())
 
-// Conexão
-conn.sync()
+app.use(express.static('public'))
+
+const db = require('./db/conn')
+const Task = require('./models/Tasks')
+const User = require('./models/User')
+const tasksRoutes = require('./routes/routes')
+
+app.use('/', tasksRoutes)
+
+db.sync()
 .then(() => {
     app.listen(3000)
-}).catch(err => {
+}).catch((err) => {
     console.log(err)
 })
-//
