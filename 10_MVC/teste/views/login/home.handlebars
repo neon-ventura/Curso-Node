@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="wrapper">
-    <form action="/register" method="post">
+    <form action="/login" method="post">
         <h1>Login</h1>
 
         <div class="input-box">
@@ -24,7 +24,10 @@
         <input class="login-btn" type="submit" value="Login">
 
         <div class="register-link">
-            <p>Don't have an account? <a href="#">Register</a></p>
+            <p>Don't have an account? <a href="/register">Register</a></p>
+            {{#if error}}
+                <span>{{this.error}}</span>
+            {{/if}}
         </div>
 
     </form>

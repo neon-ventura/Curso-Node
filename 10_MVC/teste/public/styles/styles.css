@@ -94,3 +94,7 @@ body {
 .register-link p a:hover {
     text-decoration: underline;
 }
+
+.register-link span {
+    color: red;
+}
