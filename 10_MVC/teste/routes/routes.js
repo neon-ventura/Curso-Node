@@ -4,9 +4,9 @@ const LoginController = require('../controllers/LoginController')
 const RegisterController = require('../controllers/RegisterController')
 const route = express.Router()
 
-route.get('/home', TasksController.home)
+route.get('/', TasksController.home)
 
-route.get('/task',TasksController.task)
+route.get('/task/:id',TasksController.task)
 
 route.post('/login', LoginController.login)
 
