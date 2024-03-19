@@ -1,0 +1,13 @@
+.tasks-list{
+    list-style: none;
+    margin-top: 1em;
+}
+
+.tasks-list li {
+    padding: .5em;
+    margin-bottom: 1em;
+    background-color: #efefef72;
+    border-bottom: 1px solid #EFEFEF;
+    border-radius: 10px;
+    justify-content: space-between;
+}
