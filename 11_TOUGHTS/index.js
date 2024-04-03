@@ -6,6 +6,11 @@ const FileStore = require('session-file-store')(session)
 const flash = require('express-flash')
 const conn = require('./db/conn')
 
+// Models
+
+const Tought = require('./models/Tought')
+const User = require('./models/User')
+
 // template engine
 
 app.engine('handlebars', exphbs.engine())
