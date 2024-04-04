@@ -11,10 +11,15 @@ const conn = require('./db/conn')
 const Tought = require('./models/Tought')
 const User = require('./models/User')
 
+// Router
+
+const router = require('./routes/toughtsRoutes')
+app.use('/', router)
+
 // template engine
 
 app.engine('handlebars', exphbs.engine())
-app.set('view-engine', 'handlebars')
+app.set('view engine', 'handlebars')
 
 // receber resposta do body
 
