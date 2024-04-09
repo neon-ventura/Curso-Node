@@ -11,17 +11,20 @@
 </head>
 <body>
     <nav id="navbar">
+        <div id="logo">
+            <img src="/img/lampada.png" alt="lampada">
+        </div>
         <ul>
-            <li><a href="/">Pensamentos</a></li>
+            <li><a href="/toughts">Pensamentos</a></li>
             {{!-- URLs após autenticação --}}
-            <a href="/login">Entrar</a>
-            <a href="/register">Registrar</a>
+            <li><a href="/login">Entrar</a></li>
+            <li><a href="/register">Registrar</a></li>
         </ul>
     </nav>
     <div class="container">
         {{!-- Mensagens --}}
         {{{body}}}
     </div>
-    <footer><span>Toughts</span> &copy; 2023</footer>
+    <footer><p><span>Toughts</span> &copy; 2023</p></footer>
 </body>
 </html>

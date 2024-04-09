@@ -13,8 +13,10 @@ const User = require('./models/User')
 
 // Router
 
-const router = require('./routes/toughtsRoutes')
-app.use('/', router)
+const toughtsRoutes = require('./routes/toughtsRoutes')
+const authRoutes = require('./routes/authRoutes')
+app.use('/toughts', toughtsRoutes)
+app.use('/', authRoutes)
 
 // template engine
 
